@@ -9,7 +9,7 @@
     <form action="/file" method="post" id="form">
       <p><input type="file" name="file" id="file" /></p>
       <% @presets.each do |id, preset| %>
-        <p><label><input <% if preset == @default_preset%> checked=checked <% end %> name="preset" id="preset" type="radio" value="<%= id %>"><%= preset[:name] %></label></p>
+        <p><label><input <% if id == @default_preset%> checked=checked <% end %> name="preset" type="radio" value="<%= id %>"><%= preset[:name] %></label></p>
       <% end %>
       <p>
         <input type="text" name="filename" id="filename"> . <input type="text" readonly="readonly" id="file-extension" size=5>

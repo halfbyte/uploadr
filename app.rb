@@ -4,8 +4,10 @@ require 'fileutils'
 require 'mini_magick'
 
 PRESETS = {
-  '500w' => { op: '500x>', name: '500px width max' },
-  '1000w' => { op: '1000x>', name: '1000px width max' }
+  'unprocessed' => { op: nil, name: 'Unprocessed' },
+  '500w' => { op: '500x>', name: '500px width max twitter etc.' },
+  '1200w' => { op: '1200x>', name: 'jk.de post_head (1200px wide)'},
+  '1280w' => { op: '1280x>', name: 'write.as HiDPI (1280)' }
 }
 
 BASE_URL = ENV['BASE_URL'] || 'http://localhost:4567/uploads'
@@ -36,7 +38,12 @@ post '/file' do
 
   image = MiniMagick::Image.read params[:file]['tempfile']
 
-  image.resize(PRESETS[params[:preset]][:op])
+  preset = params[:preset] || '500w'
+  op = PRESETS[params[:preset]][:op]
+
+  if op
+    image.resize(PRESETS[params[:preset]][:op])
+  end
 
   loop do
     prefix = SecureRandom.hex(10)
