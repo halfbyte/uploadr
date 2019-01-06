@@ -12,9 +12,6 @@ const result = document.getElementById('result')
 const copyToClipboard = document.getElementById('copy-to-clipboard')
 const done = document.getElementById('done')
 
-console.log(result)
-
-
 var droppedFile
 
 dropTarget.addEventListener('dragover', function (e) {
@@ -44,13 +41,12 @@ dropTarget.addEventListener('drop', function (e) {
 })
 
 
-file.addEventListener('input', function (e) {
+file.addEventListener('change', function (e) {
   if (e.target.files[0] && isImage(e.target.files[0].type)) {
     insertFilename(e.target.files[0])
     previewImage(e.target.files[0])
   }
 })
-
 
 form.addEventListener('submit', function (e) {
   e.preventDefault()
@@ -81,8 +77,6 @@ function showForm() {
 }
 
 function showResult(url) {
-  console.log('showResult', url, result)
-
   result.style.display = 'block'
   dropTarget.style.display = 'none'
   fileUrl.value = url
@@ -95,10 +89,8 @@ function isImage (mime) {
 function uploadForm (form) {
   return new Promise(function (resolve, reject) {
     var data = new FormData(form)
-    console.log(data.has('file'), "---" + data.get('file').name)
 
     if ((data.get('file').name == null || data.get('file').name === '') && droppedFile != null) {
-      console.log("dropped", droppedFile)
       data.set('file', droppedFile)
     }
 
@@ -124,7 +116,6 @@ function previewImage (file) {
       resolve()
     }
     reader.onerror = function (e) {
-      console.log(e)
       reject(e.error)
     }
     reader.readAsDataURL(file)
@@ -139,7 +130,7 @@ function insertFilename (file) {
 }
 
 function ext (filename) {
-  return (filename.match(/\.((jpe?g|gif|png))$/)[1] || '').toLowerCase()
+  return (filename.match(/\.(jpe?g|gif|png)$/i)[1] || '').toLowerCase()
 }
 
 function nameWithoutExt (filename) {
@@ -147,7 +138,6 @@ function nameWithoutExt (filename) {
 }
 
 function reset() {
-  console.log("RESET")
   file.value = ''
   filename.value = ''
   fileExtension.value = ''
