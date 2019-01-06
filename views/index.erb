@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>uploadr</title>
+  <link rel="stylesheet" type="text/css" href="/uploadr.css">
+</head>
+<body>
+  <div class="drop-target" id="drop-target">
+    <h1>Uploadr</h1>
+      <form action="/file" method="post" id="form">
+      <p><label>Preset:
+        <select name="preset" id="preset">
+          <option value="500w">500px width</option>
+          <option value="1000w">1000px width</option>
+        </select>
+      </label></p>
+      <p><label>Filename:
+        <input type="text" name="filename" id="filename"> . <input type="text" disabled=disabled id="file-extension" size=5>
+      </label></p>
+      <p><input type="file" name="file" id="file" /></p>
+      <p><button type="submit">Upload</button></p>
+      </form>
+      <p>
+        <img src="/drop-here.png" id="preview-image" class="preview-image">
+      </p>
+    <script type="text/javascript" src="/uploadr.js"></script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+body {
+  color: #eee;
+  font-family: sans-serif;
+  background: #668;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+.preview-image {
+  width: 500px;
+  border: 2px solid black;
+}
+
+.drop-target {
+  box-sizing: border-box;
+  height: 100vh;
+  background: #000;
+  margin: 10px;
+  border: 5px solid transparent;
+  padding: 20px;
+}
