@@ -6,24 +6,24 @@
 </head>
 <body>
   <div class="drop-target" id="drop-target">
-    <h1>Uploadr</h1>
-      <form action="/file" method="post" id="form">
-      <p><label>Preset:
-        <select name="preset" id="preset">
-          <option value="500w">500px width</option>
-          <option value="1000w">1000px width</option>
-        </select>
-      </label></p>
-      <p><label>Filename:
-        <input type="text" name="filename" id="filename"> . <input type="text" disabled=disabled id="file-extension" size=5>
-      </label></p>
+    <form action="/file" method="post" id="form">
       <p><input type="file" name="file" id="file" /></p>
-      <p><button type="submit">Upload</button></p>
-      </form>
+      <% @presets.each do |id, preset| %>
+        <p><label><input <% if preset == @default_preset%> checked=checked <% end %> name="preset" id="preset" type="radio" value="<%= id %>"><%= preset[:name] %></label></p>
+      <% end %>
       <p>
-        <img src="/drop-here.png" id="preview-image" class="preview-image">
+        <input type="text" name="filename" id="filename"> . <input type="text" readonly="readonly" id="file-extension" size=5>
       </p>
-    <script type="text/javascript" src="/uploadr.js"></script>
+      <p><button type="submit">Upload</button></p>
+    </form>
+    <p>
+      <img src="/drop-here.png" id="preview-image" class="preview-image">
+    </p>
   </div>
+  <div id="result" style="display: none;">
+    <p><input type="text" readonly="readonly" id="file-url" size=100><button id="copy-to-clipboard">Copy to Clipboard</button></p>
+    <p><button id="done">Okay</button></p>
+  </div>
+  <script type="text/javascript" src="/uploadr.js"></script>
 </body>
 </html>
