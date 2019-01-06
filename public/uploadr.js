@@ -8,6 +8,7 @@ const filename = document.getElementById('filename')
 const fileExtension = document.getElementById('file-extension')
 const image = document.getElementById('preview-image')
 const fileUrl = document.getElementById('file-url')
+const fileLink = document.getElementById('file-link')
 const result = document.getElementById('result')
 const copyToClipboard = document.getElementById('copy-to-clipboard')
 const done = document.getElementById('done')
@@ -80,6 +81,8 @@ function showResult(url) {
   result.style.display = 'block'
   dropTarget.style.display = 'none'
   fileUrl.value = url
+  fileLink.href = url
+  fileLink.innerHTML = url
 }
 
 function isImage (mime) {
