@@ -45,8 +45,6 @@ dropTarget.addEventListener('drop', function (e) {
 
 
 file.addEventListener('input', function (e) {
-  const preset = document.getElementById('preset').value
-  console.log(preset)
   if (e.target.files[0] && isImage(e.target.files[0].type)) {
     insertFilename(e.target.files[0])
     previewImage(e.target.files[0])
