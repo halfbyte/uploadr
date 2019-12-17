@@ -39,10 +39,12 @@ post '/file' do
   image = MiniMagick::Image.read params[:file]['tempfile']
 
   preset = params[:preset] || '500w'
-  op = PRESETS[params[:preset]][:op]
+  op = PRESETS[preset][:op]
+
+  image.auto_orient
 
   if op
-    image.resize(PRESETS[params[:preset]][:op])
+    image.resize(op)
   end
 
   loop do
