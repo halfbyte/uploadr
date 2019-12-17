@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     backports (3.11.4)
-    mini_magick (4.9.2)
+    mini_magick (4.9.4)
     multi_json (1.13.1)
     mustermann (1.0.3)
     rack (2.0.6)
