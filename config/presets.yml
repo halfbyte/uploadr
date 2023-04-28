@@ -1,0 +1,13 @@
+unprocessed:
+  op: nil
+  name: Unprocessed
+500w:
+  op: "500x>"
+  name: 500px width max
+  default: true
+1200w:
+  op: "1200x>"
+  name: jk.de post_head (1200px wide)
+1280w:
+  op: "1280x>"
+  name: "write.as HiDPI (1280)"
