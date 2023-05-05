@@ -7,6 +7,12 @@ body {
   padding: 0;
 }
 
+h1 {
+  font-size: 6em;
+  font-family: 'Courier New', Courier, monospace;
+  margin: 0; padding: 0;
+}
+
 
 .preview-image {
   width: 500px;

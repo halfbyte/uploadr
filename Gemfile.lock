@@ -5,8 +5,11 @@ GEM
     multi_json (1.15.0)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
+    nio4r (2.5.9)
     psych (5.1.0)
       stringio
+    puma (6.2.2)
+      nio4r (~> 2.0)
     rack (2.2.7)
     rack-protection (3.0.6)
       rack
@@ -31,6 +34,7 @@ PLATFORMS
 DEPENDENCIES
   mini_magick (~> 4.9)
   psych (~> 5.1)
+  puma (~> 6.2)
   sinatra (~> 3.0)
   sinatra-contrib (~> 3.0)
 
